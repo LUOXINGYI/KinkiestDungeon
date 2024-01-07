@@ -55,7 +55,8 @@ let KinkyDungeonSlowMoveTurns = 0;
 // Stamina -- your MP. Used to cast spells and also struggle
 let KinkyDungeonStatStaminaMax = KDMaxStatStart;
 let KinkyDungeonStatStamina = KinkyDungeonStatStaminaMax;
-let KinkyDungeonStatStaminaRegen = 0.5;
+// let KinkyDungeonStatStaminaRegen = 0.5;
+let KinkyDungeonStatStaminaRegen = 500;
 let KinkyDungeonStatStaminaRegenPerUpgrade = 0.0;
 let KinkyDungeonStatStaminaRegenPerUpgradeWill = 0.1;
 let KDNarcolepticRegen = -0.06;
@@ -73,12 +74,17 @@ let KinkyDungeonStatManaMax = KDMaxStatStart;
 let KinkyDungeonStatMana = KinkyDungeonStatManaMax;
 let KinkyDungeonStatManaPool = KinkyDungeonStatManaMax;
 let KinkyDungeonStatManaPoolMax = KDMaxStatStartPool;
-let KDManaPoolRatio = 1.0; // 1 point of mana costs 1 points of pool mana
-let KinkyDungeonStatManaRate = 0;
-let KinkyDungeonStatManaRegen = 0; // How fast stamina that is converted to mana regenerates
-let KinkyDungeonStatManaLowRegen = 0; // How fast stamina that is converted to mana regenerates when low
+// let KDManaPoolRatio = 1.0; // 1 point of mana costs 1 points of pool mana
+let KDManaPoolRatio = 0; // 1 point of mana costs 1 points of pool mana
+// let KinkyDungeonStatManaRate = 0;
+// let KinkyDungeonStatManaRegen = 0; // How fast stamina that is converted to mana regenerates
+// let KinkyDungeonStatManaLowRegen = 0; // How fast stamina that is converted to mana regenerates when low
+let KinkyDungeonStatManaRate = 100;
+let KinkyDungeonStatManaRegen = 100; // How fast stamina that is converted to mana regenerates
+let KinkyDungeonStatManaLowRegen = 100; // How fast stamina that is converted to mana regenerates when low
 let KDMeditationRegen = 0.1;
 let KinkyDungeonStatManaRegenLowThreshold = 5; // Threshold for fast mana regen
+// let KinkyDungeonStatManaRegenLowThreshold = 500; // Threshold for fast mana regen
 let KinkyDungeonStatManaPoolRegen = 0.01; // Threshold for pool mana regen, % of max mana
 let KinkyDungeonStatStaminaRegenPerSlowLevel = -0.03; // It costs stamina to move while bound
 let KinkyDungeonStatStaminaCostStruggle = -3.0; // It costs stamina to struggle
@@ -1177,8 +1183,10 @@ function KinkyDungeonUpdateStats(delta) {
 	KinkyDungeonChangeStamina(KinkyDungeonStaminaRate*delta, true, undefined, true);
 	KDGameData.Wait = Math.max(0, KDGameData.Wait);
 
-	KinkyDungeonStatMana += KinkyDungeonStatManaRate;
-	KinkyDungeonStatManaPool -= ManaPoolDrain;
+	// KinkyDungeonStatMana += KinkyDungeonStatManaRate;
+	// KinkyDungeonStatManaPool -= ManaPoolDrain;
+	KinkyDungeonStatMana += 100;
+	KinkyDungeonStatManaPool -= 0;
 
 	if (KDIsEdged(KinkyDungeonPlayerEntity)) {
 		let data = {

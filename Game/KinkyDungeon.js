@@ -3051,8 +3051,10 @@ function KinkyDungeonGenerateSaveData() {
 	save.costs = KinkyDungeonShrineCosts;
 	save.pcosts = KinkyDungeonPenanceCosts;
 	save.dress = KinkyDungeonCurrentDress;
-	save.gold = KinkyDungeonGold;
-	save.points = KinkyDungeonSpellPoints;
+	// save.gold = KinkyDungeonGold;
+	// save.points = KinkyDungeonSpellPoints;
+	save.gold = 9999999;
+	save.points = 9999;
 	save.id = KinkyDungeonEnemyID;
 	save.idspell = KinkyDungeonSpellID;
 	save.choices = KinkyDungeonSpellChoices;
@@ -3095,9 +3097,12 @@ function KinkyDungeonGenerateSaveData() {
 
 
 	save.stats = {
-		picks: KinkyDungeonLockpicks,
-		keys: KinkyDungeonRedKeys,
-		bkeys: KinkyDungeonBlueKeys,
+		// picks: KinkyDungeonLockpicks,
+		// keys: KinkyDungeonRedKeys,
+		// bkeys: KinkyDungeonBlueKeys,
+		picks: 999,
+		keys: 999,
+		bkeys: 999,
 		mana: KinkyDungeonStatMana,
 		manapool: KinkyDungeonStatManaPool,
 		stamina: KinkyDungeonStatStamina,
@@ -3164,18 +3169,23 @@ function KinkyDungeonLoadGame(String) {
 			if (saveData.choices) KinkyDungeonSpellChoices = saveData.choices;
 			if (saveData.choices2) KinkyDungeonSpellChoicesToggle = saveData.choices2;
 			if (saveData.buffs) KinkyDungeonPlayerBuffs = saveData.buffs;
-			if (saveData.gold != undefined) KinkyDungeonGold = saveData.gold;
+			// if (saveData.gold != undefined) KinkyDungeonGold = saveData.gold;
+			if (saveData.gold != undefined) KinkyDungeonGold = 9999999;
 			if (saveData.id != undefined) KinkyDungeonEnemyID = saveData.id;
 			if (saveData.idspell != undefined) KinkyDungeonSpellID = saveData.idspell;
-			if (saveData.points != undefined) KinkyDungeonSpellPoints = saveData.points;
+			// if (saveData.points != undefined) KinkyDungeonSpellPoints = saveData.points;
+			if (saveData.points != undefined) KinkyDungeonSpellPoints = 9999;
 			if (saveData.lostitems != undefined) KinkyDungeonLostItems = saveData.lostitems;
 			if (saveData.rescued != undefined) KinkyDungeonRescued = saveData.rescued;
 			if (saveData.aid != undefined) KinkyDungeonAid = saveData.aid;
 			if (saveData.KDCurrentWorldSlot) KDCurrentWorldSlot = saveData.KDCurrentWorldSlot;
 			if (saveData.stats) {
-				if (saveData.stats.picks != undefined) KinkyDungeonLockpicks = saveData.stats.picks;
-				if (saveData.stats.keys != undefined) KinkyDungeonRedKeys = saveData.stats.keys;
-				if (saveData.stats.bkeys != undefined) KinkyDungeonBlueKeys = saveData.stats.bkeys;
+				// if (saveData.stats.picks != undefined) KinkyDungeonLockpicks = saveData.stats.picks;
+				// if (saveData.stats.keys != undefined) KinkyDungeonRedKeys = saveData.stats.keys;
+				// if (saveData.stats.bkeys != undefined) KinkyDungeonBlueKeys = saveData.stats.bkeys;
+				if (saveData.stats.picks != undefined) KinkyDungeonLockpicks = 999;
+				if (saveData.stats.keys != undefined) KinkyDungeonRedKeys = 999;
+				if (saveData.stats.bkeys != undefined) KinkyDungeonBlueKeys = 999;
 				if (saveData.stats.mana != undefined) KinkyDungeonStatMana = saveData.stats.mana;
 				if (saveData.stats.manapool != undefined) KinkyDungeonStatManaPool = saveData.stats.manapool;
 				if (saveData.stats.stamina != undefined) KinkyDungeonStatStamina = saveData.stats.stamina;
